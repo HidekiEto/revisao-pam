@@ -1,16 +1,24 @@
 import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import React from 'react';
 
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
+
+
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function InitialScreen(){
+    const navigation = useNavigation()
+
     return(
         <View style={styles.container}>
-
+            <StatusBar
+                backgroundColor='#737e86'
+            />
             <View>
                 <Image
                     source = {require('../assets/casual_dog.png')}
-                    style={{width: '100%', height: '70%'}}
+                    style={{}}
                 /> 
             </View>
 
@@ -19,16 +27,19 @@ export default function InitialScreen(){
                 <Text style={styles.subtitle}> Como deseja acessar? </Text>
             </View>
 
-            <View>
+            <View style={styles.containerButton}>
                 <TouchableOpacity style={styles.button}>
                     <Image
                         source={require('../assets/Google.png')}
                         style={styles.iconGoogle}
                     />
-                    <Text> Como deseja acessar?  </Text>
+                    <Text style={{}}> Como deseja acessar?  </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity 
+                style={styles.secondButton}
+                onPress = {() => navigation.navigate('Login')}
+                >
                     <Text> Outras opções </Text>
                 </TouchableOpacity>
             </View>
@@ -53,12 +64,32 @@ const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
         alignItems: 'center',
+        textAlign: 'center',
+        alignContent: 'space-between',
+        backgroundColor: '#2cb859',
+        width: '80%',
+        height: 50,
+        borderRadius: 10,
+        margin: 20,
+    },
+    secondButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'green',
-        width: '50%'
+        backgroundColor: 'white',
+        width: '80%',
+        height: 50,
+        borderRadius: 10,
+        borderColor: '#2cb859',
+        borderWidth: 1
     },
     iconGoogle: {
         width: 20,
-        height: 20
+        height: 20,
+        backgroundColor: 'white',
+        margin: 20
+    },
+    containerButton: {
+        alignItems: 'center'
     }
 })
