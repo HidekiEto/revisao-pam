@@ -28,17 +28,19 @@ export default function InitialScreen(){
             </View>
 
             <View style={styles.containerButton}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress = {() => navigation.navigate('Login')}
+                >
                     <Image
                         source={require('../assets/Google.png')}
                         style={styles.iconGoogle}
                     />
-                    <Text style={{}}> Como deseja acessar?  </Text>
+                    <Text style={styles.buttonText}> Como deseja acessar?  </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                 style={styles.secondButton}
-                onPress = {() => navigation.navigate('Login')}
+                
                 >
                     <Text> Outras opções </Text>
                 </TouchableOpacity>
@@ -64,13 +66,13 @@ const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
         alignItems: 'center',
-        textAlign: 'center',
-        alignContent: 'space-between',
+        justifyContent: 'center', // centraliza o texto
         backgroundColor: '#2cb859',
         width: '80%',
         height: 50,
         borderRadius: 10,
         margin: 20,
+        position: 'relative',
     },
     secondButton: {
         flexDirection: 'row',
@@ -87,7 +89,13 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         backgroundColor: 'white',
-        margin: 20
+        position: 'absolute',
+        left: 20, // distância da borda esquerda
+    },
+    buttonText: {
+        flex: 1,
+        textAlign: 'center',
+        color: 'white',
     },
     containerButton: {
         alignItems: 'center'

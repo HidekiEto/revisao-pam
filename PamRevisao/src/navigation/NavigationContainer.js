@@ -12,13 +12,15 @@ export default function Navigation(){
             <Stack.Screen
                 name = "InitialScreen"
                 component = { InitialScreen }
-                options = {{ headerShow: false}}
+                options = {{ headerShown: false}}
+                
             />
 
             <Stack.Screen
                 name="Login"
                 component={ Login }
-                options={{ headerShow: false }}
+                options={{ headerShown: false }}
+                
             />
 
         </Stack.Navigator>

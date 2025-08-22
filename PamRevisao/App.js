@@ -8,10 +8,10 @@ import InitialScreen from './src/pages/InitialScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-        <InitialScreen/>
+    <NavigationContainer style={styles.container}>
       <StatusBar style="auto" />
-    </View>
+        <Navigation />
+    </NavigationContainer>
   );
 }
 
